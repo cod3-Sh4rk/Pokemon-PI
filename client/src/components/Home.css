@@ -1,0 +1,15 @@
+.CardContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.Card{
+    margin-top: 70px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100vw;
+  justify-content: space-around;
+    
+}

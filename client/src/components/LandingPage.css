@@ -1,0 +1,25 @@
+.landing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("G:\Henry\PI-Pokemon-main\client\src\imgs\pokemon-wallpaper-013.jpg");
+  background-repeat:no-repeat;
+  background-attachment: fixed;
+  background-position:center;
+     
+    background-size: cover;
+  
+  }
+  .button {
+    background-color: #0b23f5; 
+    border: none;
+    color: rgb(239, 255, 10);
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    
+  }
+  

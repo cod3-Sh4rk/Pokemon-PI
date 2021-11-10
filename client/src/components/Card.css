@@ -1,0 +1,14 @@
+.Card{
+
+display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    padding: 32px 24px;
+    margin: 12px;
+    border: 1px solid #6a31f0;
+    background-color: #6dafec;
+    max-width: 100px;
+    height: 150px;
+}
