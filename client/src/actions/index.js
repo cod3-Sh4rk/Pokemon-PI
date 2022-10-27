@@ -98,3 +98,10 @@ export function getDetail(id) {
         }
     }
 }
+
+export function RemovePokemon(){
+    return{
+        type: 'REMOVE_POKEMON',
+        payload: {}
+    }
+}

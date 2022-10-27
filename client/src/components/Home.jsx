@@ -11,15 +11,15 @@ import "./Home.css"
 
 export default function Home() {
     const dispatch = useDispatch();
-    const allPokemons = useSelector((state) => state.pokemons); //lo mismo que hacer mapstatetoprops
+    const allPokemons = useSelector((state) => state.pokemons); 
     const [orden, setOrden] = useState('')
     const [order, setOrder] = useState('')
-    const [currentPage, setCurrentPage] = useState(1); //pq siempre arranco en la primer página
+    const [currentPage, setCurrentPage] = useState(1); 
     const [pokemonsPerPage, setPokemonsPerPage] = useState(9);
-    const indexOfLastPokemon = currentPage * pokemonsPerPage; // 9
-    const indexOfFirstPokemon = indexOfLastPokemon - pokemonsPerPage // 0
+    const indexOfLastPokemon = currentPage * pokemonsPerPage; 
+    const indexOfFirstPokemon = indexOfLastPokemon - pokemonsPerPage 
     const currentPokemons = allPokemons.slice(indexOfFirstPokemon, indexOfLastPokemon)
-    //me devuelve un arreglo desde el 0 hasta el 9
+    
 
     const paginado = (pageNumber) => {
         setCurrentPage(pageNumber)
@@ -59,11 +59,11 @@ export default function Home() {
     return (
         <div className="bleh">
             <Link to= '/pokemon'> 
-            <button>Crear pokemon</button>
+            <button>Create pokemon</button>
             </Link>
             <h1>The small pokedex</h1>
             <button onClick={e => {handleClick(e)}}> 
-                Volver a cargar todos los pokémon
+                Reload
             </button>
             <div>
                 <select onChange={e => handleSort(e)}>
@@ -102,11 +102,7 @@ export default function Home() {
                     <option value= 'created'> Created </option>
                     <option value= 'api'> Existing </option>
                 </select>
-                <Paginado
-                pokemonsPerPage = {pokemonsPerPage}
-                allPokemons = {allPokemons.length}
-                paginado = {paginado}
-                />
+                
                 <SearchBar></SearchBar>
                 <div className="CardContainer">
 
@@ -122,6 +118,13 @@ export default function Home() {
                     );
                 })}
                 </div>
+            </div>
+            <div> 
+            <Paginado
+                pokemonsPerPage = {pokemonsPerPage}
+                allPokemons = {allPokemons.length}
+                paginado = {paginado}
+                />
             </div>
         </div>
      )

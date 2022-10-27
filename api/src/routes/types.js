@@ -18,8 +18,8 @@ router.get('/', async (req, res) => {
         };
     } else {
         const types = await Type.findAll();
-        const typesTotal = types.map(e => e.name);
-        return res.status(200).send(typesTotal);
+        
+        return res.status(200).send(types);
     };
 })
 

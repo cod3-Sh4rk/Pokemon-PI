@@ -95,7 +95,13 @@ function rootReducer (state = initialState, action) {
                                 ...state,
                                 detail: action.payload
                             }
+                            case 'REMOVE_POKEMON':
+                                return {
+                                    ...state,
+                                    pokemons:action.payload
+                                }
                     default: return state;
+                   
                 }    
 }
 

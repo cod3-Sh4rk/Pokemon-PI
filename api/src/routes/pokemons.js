@@ -1,5 +1,4 @@
 
-
 const { Router } = require('express');
 const router = Router();
 const {getAllPokemon} = require('../controllers/PokemonController')
@@ -12,7 +11,7 @@ router.get('/pokemons', async (req, res) => {
         const pokemonsTotal = await getAllPokemon();
         if(name) {
             let pokemonName =  await pokemonsTotal.filter(e => e.name.toLowerCase().includes(name.toLowerCase()))
-             pokemonName.length? //hay algo?
+             pokemonName.length? 
             res.status(200).send(pokemonName) :
             res.status(404).send('Pokemon no encontrado')
         } else {
@@ -35,10 +34,10 @@ router.get('/pokemons/:id', async (req, res) => {
 
 
 router.post('/pokecre', (req, res,next) => {
-    let {name, hp, attack, defense, speed, height, weight, sprite, createdInDb, types} = req.body;
+    const {name, hp, attack, defense, speed, height, weight, sprite, createdInDb, types} = req.body;
   
         console.log(types)
-        let createdPokemon = {
+        const createdPokemon = {
             name,
             hp,
             attack,
@@ -47,12 +46,12 @@ router.post('/pokecre', (req, res,next) => {
             height,
             weight,
             sprite,
-            type: types.map(e=>e.name),
+            types,
             createdInDb
         };
-        console.log (createdPokemon.type)
+        console.log (createdPokemon.types)
         Pokemon.create({...createdPokemon})
-        .then((e)=>{e.addType({name:createdPokemon.type})})
+        .then((e)=>{e.addType(createdPokemon.types)})
         .then((created)=>{return res.json(created).send(created)})
         .catch((error)=> next(error))
 })

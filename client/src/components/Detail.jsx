@@ -1,18 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getDetail } from '../actions/index.js'
+import { getDetail} from '../actions/index.js'
 import { useEffect } from 'react';
 
 export default function Detail(props) {
     console.log(props)
     const dispatch = useDispatch()
+    const myPokemon = useSelector((state) => state.detail)
+    const id = props.match.params
 
     useEffect(() => {
         dispatch(getDetail(props.match.params.id)); //para acceder al ID de ese detalle
     },[dispatch])
 
-    const myPokemon = useSelector((state) => state.detail)
+    
 
     return (
         <div>
